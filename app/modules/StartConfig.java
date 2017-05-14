@@ -1,5 +1,6 @@
 package modules;
 
+import models.Profile;
 import play.inject.ApplicationLifecycle;
 import io.ebean.*;
 import javax.inject.Inject;
@@ -13,9 +14,8 @@ public class StartConfig {
     @Inject
     public StartConfig(ApplicationLifecycle lifecycle, play.api.Configuration configuration) {
 
-            String queryString = "ALTER SEQUENCE profile_id_seq INCREMENT by 1";
-            Ebean.createSqlUpdate(queryString).execute();
-
+        System.out.println("Starting module...");
+        System.out.println("Profiles: " + Profile.find.all().size());
 
         lifecycle.addStopHook(() -> {
             return CompletableFuture.completedFuture(null);

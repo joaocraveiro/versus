@@ -16,4 +16,6 @@ public class Profile extends Model {
     @GeneratedValue
     public Long id;
 
+    public static Finder<Long,Profile> find = new Finder<>(Profile.class);
+
 }
