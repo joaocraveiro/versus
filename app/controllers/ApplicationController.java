@@ -2,12 +2,22 @@ package controllers;
 
 import authenticators.RESTAuth;
 
+import modules.StartConfig;
 import play.mvc.*;
 
 import views.html.*;
 
+import javax.inject.Inject;
+
 
 public class ApplicationController extends Controller {
+
+    StartConfig scfg;
+
+    @Inject
+    public ApplicationController(StartConfig scfg){
+        this.scfg = scfg;
+    }
 
     public Result index() {
         System.out.println("index");
