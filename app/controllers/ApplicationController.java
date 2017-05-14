@@ -39,7 +39,7 @@ public class ApplicationController extends Controller {
         return ok();
     }
 
-    @Security.Authenticated(RESTAuth.class)
+    @Security.Authenticated(RESTAuth.class) // The bug is here. If logout is not authenticated works.
     public Result logout(){
         System.out.println("logout");
         session().clear();
