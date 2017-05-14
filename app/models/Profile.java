@@ -16,6 +16,13 @@ public class Profile extends Model {
     @GeneratedValue
     public Long id;
 
+    String name;
+
+    public Profile(String name){
+        this.name = name;
+        this.save();
+    }
+
     public static Finder<Long,Profile> find = new Finder<>(Profile.class);
 
 }
